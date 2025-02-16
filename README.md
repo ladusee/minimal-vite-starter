@@ -20,12 +20,7 @@ npm run dev
 npm run build
 ```
 
-Everything will be in the `dist` folder.
-
-### Config restrictions
-
-Currently MPA (Multi Page App) requires to have root folders as routes,
-e.g. `./about` will be available at `http://localhost:PORT/about`.
+Everything will be built into the `dist` folder.
 
 ## Docs
 
@@ -36,11 +31,10 @@ https://vite.dev/guide/build.html#multi-page-app
 ### Current structure
 
 /src - source code
-/about - about page
 /public - static files
 /dist - build output
 
-### Desired structure
+### Desired structure (future roadmap)
 
 /src
 /src/pages
@@ -50,7 +44,9 @@ https://vite.dev/guide/build.html#multi-page-app
 
 ## TODO
 
-- [ ] Add support for custom routes (**high priority**)
+- [x] Move routes from the project root to the `src` directory
+
+- [ ] Add support for custom routes (**low priority**)
       (e.g. `/about` -> `./src/pages/about`)
 
 - [ ] Add support for non-manual routes (**optional**)
