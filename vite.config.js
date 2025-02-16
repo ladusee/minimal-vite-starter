@@ -4,18 +4,29 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const srcDir = resolve(__dirname, "src");
 
 export default defineConfig({
 	server: {
 		port: 3000
 	},
 	plugins: [tailwindcss()],
+	/**
+	 * Set `root` to `src`, so the default router
+	 * will be relative to the `src` directory.
+	 */
+	root: srcDir,
 	build: {
 		rollupOptions: {
 			input: {
-				main: resolve(__dirname, "index.html"),
-				about: resolve(__dirname, "about/index.html"),
-				contacts: resolve(__dirname, "contacts/index.html")
+				/**
+				 * Manually specify the input files for the build.
+				 * Without this, build step will only bundle
+				 * the `[root]/index.html` file.
+				 */
+				home: resolve(srcDir, "index.html"),
+				about: resolve(srcDir, "about/index.html"),
+				notFound: resolve(srcDir, "not-found.html")
 			}
 		}
 	}
