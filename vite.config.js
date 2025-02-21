@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const publicDir = resolve(__dirname, "public");
 const srcDir = resolve(__dirname, "src");
 
 export default defineConfig({
@@ -16,6 +17,7 @@ export default defineConfig({
 	 * will be relative to the `src` directory.
 	 */
 	root: srcDir,
+	publicDir,
 	build: {
 		rollupOptions: {
 			input: {
