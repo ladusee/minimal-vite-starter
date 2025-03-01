@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = resolve(__dirname, "public");
 const srcDir = resolve(__dirname, "src");
+const distDir = resolve(__dirname, "dist");
 
 export default defineConfig({
 	server: {
@@ -19,6 +20,8 @@ export default defineConfig({
 	root: srcDir,
 	publicDir,
 	build: {
+		outDir: distDir,
+		emptyOutDir: true,
 		rollupOptions: {
 			input: {
 				/**
